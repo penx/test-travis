@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- '7'
+cache:
+  directories:
+    - node_modules
+branches:
+  only:
+    - master
+    - /^v\d+\.\d+\.\d+$/
+script:
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/pull_request_script.sh; fi'
+after_success:
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" & "$TRAVIS_BRANCH" = "master" ]; then bash ./travis/master_after_success.sh; fi'
