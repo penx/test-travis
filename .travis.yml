@@ -11,4 +11,4 @@ branches:
 script:
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/pull_request_script.sh; fi'
 after_success:
-  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" & "$TRAVIS_BRANCH" = "master" ]; then bash ./travis/master_after_success.sh; fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false"] && ["$TRAVIS_BRANCH" = "master" ]; then bash ./travis/master_after_success.sh; fi'
